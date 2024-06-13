@@ -52,9 +52,10 @@ public class Main {
         myQueue.add("from");
         myQueue.add("Queue");
         myQueue.add("!");
-        myQueue.add("!");
+        myQueue.add("!!");
         System.out.println("myQueue = " + myQueue);
-        myQueue.poll();
+        System.out.println("peek "+ myQueue.peek());
+        System.out.println("poll "+ myQueue.poll());
         System.out.println("After poll " + myQueue);
         myQueue.clear();
         System.out.println("After clear size=" + myQueue.size());
@@ -65,10 +66,10 @@ public class Main {
         stack.push("from");
         stack.push("Stack");
         stack.push("!");
-        stack.push("!");
+        stack.push("!!");
         System.out.println("stack = " + stack);
 
-        stack.pop();
+        System.out.println("stack.pop = "+stack.pop());
         System.out.println("stack.peek = " + stack.peek());
         System.out.println("stack = " + stack);
 
@@ -93,10 +94,13 @@ public class Main {
         hashMap.put("9","neun");
         hashMap.put("10","zehn");
         hashMap.put("11","elf");
+        hashMap.put(null,"null");
         System.out.println("hashMap = " + hashMap);
-        System.out.println("hashMap.get(\"10\") = " + hashMap.get("10"));
+        System.out.println("hashMap.get(null) = " + hashMap.get(null));
+        System.out.println("hashMap.get(145) = " + hashMap.get("145"));
         System.out.println("hashMap.size() = " + hashMap.size());
         hashMap.remove("1");
+        hashMap.remove(null);
         hashMap.remove("5");
         hashMap.remove("11");
         hashMap.remove("15");

@@ -37,28 +37,24 @@ public class MyStack <T>{
     public int size(){
         return size;
     }
-    //peek() повертає перший елемент стеку
+    //peek() повертає ОСТАННІЙ! елемент стеку
     public T peek(){
         if (size==0){
             throw new IndexOutOfBoundsException("Array is empty.  Size: " + size);
         }
-        return data[0];
+        return data[size-1];
     }
-    //pop() повертає перший елемент стеку та видаляє його з колекції
+    //pop() повертає ОСТАННІЙ елемент стеку та видаляє його з колекції
     public T pop(){
         if (size==0){
             throw new IndexOutOfBoundsException("Array is empty.  Size: " + size);
         }
-        T firstelement = data[0];
-
-        for (int i = 0; i < size; i++) {
-            data[i] = data[i+1];
-        }
+        T lastElement = data[size-1];
 
         data[size-1] = null;
         size--;
 
-        return firstelement;
+        return lastElement;
     }
 
     @Override

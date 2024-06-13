@@ -31,19 +31,23 @@ public class MyQueue <T> {
         }
         size++;
     }
-    public Node<T> peek(){
-        return head;
+    //повертає ЗНАЧЕННЯ! першого елемента з черги
+    public T peek(){
+        return head.value;
     }
+
     public int size(){
         return size;
     }
-    public Node<T>poll(){
+
+    //повертає ЗНАЧЕННЯ! першого елементу з черги і видаляє його з колекції
+    public T poll(){
         Objects.checkIndex(0,size);
         Node<T>firstNode = head;
         head.next.prev = null;
         head = head.next;
         size--;
-        return firstNode;
+        return firstNode.value;
     }
     public void clear(){
         head = null;

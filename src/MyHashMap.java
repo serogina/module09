@@ -1,5 +1,6 @@
 import java.security.Key;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyHashMap <K,V>{
     private static final int DEFAULT_SIZE = 8;
@@ -12,7 +13,12 @@ public class MyHashMap <K,V>{
     }
 
     public void put(K key, V value){
-        int index = calculateIndex(key.hashCode());
+        int index;
+        if(key == null){
+            index = 0;
+        } else {
+            index = calculateIndex(key.hashCode());
+        }
         Entry<K,V> newEntry = new Entry<>(key, value);
         if (context[index] == null){
             context[index] = newEntry;
@@ -20,7 +26,7 @@ public class MyHashMap <K,V>{
         } else {
             Entry<K, V> entry = context[index];
             while (entry != null) {
-                if (entry.key.equals(key)) {
+                if (Objects.equals(entry.key,key)){
                     entry.value = value;
                     return;
                 }
@@ -34,14 +40,19 @@ public class MyHashMap <K,V>{
         }
     }
     public V get(K key){
-        int index = calculateIndex(key.hashCode());
+        int index;
+        if(key == null){
+            index = 0;
+        } else {
+            index = calculateIndex(key.hashCode());
+        }
         if (context[index].key.equals(key)){
             return context[index].value;
         } else {
             //iterate linked list and compare with equals
             Entry<K, V> entry = context[index];
             while (entry != null) {
-                if (entry.key.equals(key)) {
+                if (Objects.equals(entry.key, key)){
                     return entry.value;
                 }
                 entry = entry.next;
@@ -54,11 +65,16 @@ public class MyHashMap <K,V>{
         return size;
     }
     public void remove(K key){
-        int index = calculateIndex(key.hashCode());
+        int index;
+        if(key == null){
+            index = 0;
+        } else {
+            index = calculateIndex(key.hashCode());
+        }
         Entry<K, V> entry = context[index];
         Entry<K, V> prevEntry = null;
         while (entry != null) {
-            if (entry.key.equals(key)) {
+            if (Objects.equals(entry.key,key)){
                 if (prevEntry == null){
                     context[index] = entry.next;
                 } else {
