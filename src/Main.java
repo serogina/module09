@@ -82,30 +82,45 @@ public class Main {
         System.out.println("stack.size() = " + stack.size());
 
         System.out.println("==================  HashMap  ==========================");
-        MyHashMap<String,String> hashMap = new MyHashMap<>();
-        hashMap.put("1","eins");
-        hashMap.put("2","zwei");
-        hashMap.put("3","drei");
-        hashMap.put("4","vier");
-        hashMap.put("5","fünf");
-        hashMap.put("6","sechs");
-        hashMap.put("7","sieben");
-        hashMap.put("8","aucht");
-        hashMap.put("9","neun");
-        hashMap.put("10","zehn");
-        hashMap.put("11","elf");
-        hashMap.put(null,"null");
-        System.out.println("hashMap = " + hashMap);
-        System.out.println("hashMap.get(null) = " + hashMap.get(null));
-        System.out.println("hashMap.get(145) = " + hashMap.get("145"));
-        System.out.println("hashMap.size() = " + hashMap.size());
-        hashMap.remove("1");
-        hashMap.remove(null);
-        hashMap.remove("5");
-        hashMap.remove("11");
-        hashMap.remove("15");
-        System.out.println("hashMap = " + hashMap);
-        hashMap.clear();
-        System.out.println("hashMap.size() = " + hashMap.size());  
+//        MyHashMap<String,String> hashMap = new MyHashMap<>();
+//        hashMap.put("1","eins");
+//        hashMap.put("2","zwei");
+//        hashMap.put("3","drei");
+//        hashMap.put("4","vier");
+//        hashMap.put("5","fünf");
+//        hashMap.put("6","sechs");
+//        hashMap.put("7","sieben");
+//        hashMap.put("8","aucht");
+//        hashMap.put("9","neun");
+//        hashMap.put("10","zehn");
+//        hashMap.put("11","elf");
+//        hashMap.put(null,"null");
+//        System.out.println("hashMap = " + hashMap);
+//        System.out.println("hashMap.get(null) = " + hashMap.get(null));
+//        System.out.println("hashMap.get(145) = " + hashMap.get("145"));
+//        System.out.println("hashMap.size() = " + hashMap.size());
+//        hashMap.remove("1");
+//        hashMap.remove(null);
+//        hashMap.remove("5");
+//        hashMap.remove("11");
+//        hashMap.remove("15");
+//        System.out.println("hashMap = " + hashMap);
+//        hashMap.clear();
+//        System.out.println("hashMap.size() = " + hashMap.size());
+        MyHashMap<String, Integer> mhm = new MyHashMap<>();
+        mhm.put("1", 111);
+        mhm.put("2", 222);
+        mhm.put(null, 666);
+        mhm.put("3", 333);
+        mhm.put("1", 11111111);
+        mhm.put(null, 7777);
+        System.out.println(mhm.get("1")); // 11111111
+        mhm.put("1", null);
+        System.out.println(mhm.get("1")); // null
+        mhm.remove("1");
+        System.out.println("No key: " + mhm.get("1")); // null ( у тебе java.lang.NullPointerException)
+        System.out.println(mhm.size());
+        System.out.println(mhm.get(null)); // 7777 ( у тебе java.lang.NullPointerException)
+        mhm.remove(null);
     }
 }

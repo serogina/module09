@@ -46,7 +46,8 @@ public class MyHashMap <K,V>{
         } else {
             index = calculateIndex(key.hashCode());
         }
-        if (context[index].key.equals(key)){
+        if(context[index] == null){return null;}
+        if (Objects.equals(context[index].key,key)){
             return context[index].value;
         } else {
             //iterate linked list and compare with equals
